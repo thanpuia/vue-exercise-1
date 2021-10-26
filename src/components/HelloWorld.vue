@@ -147,9 +147,20 @@
       
         <div>
         <h1>EXAMPLE 12 STATE MANAGEMENT</h1>
-        
+          <p>Basic data sharing</p>
+            <h1>App 1 shared value: {{shared.value}}</h1> 
+            <h1>App 2 Shared Value: {{shared.value}}</h1>
+            <button v-on:click="increase">+</button>
+            <button v-on:click="decrease">-</button>
+            <p>
+              STATE MANAGEMENT KA THIAM LO EXPECIALLY VEUX
+            </p>
 
        </div>
+        <h1>EXAMPLE 13 USING COMPONENT</h1>
+        HEI PAWH KA THIAM LO PROPS ,EVENTS KA THIAM LOH HO.
+          In this chapter, we learned all about components, including creating them, defining the data as a function, defining and passing props, emitting and handling events, using slots, and understanding the difference between global and local registration.
+    
   </div>
 
 
@@ -157,8 +168,21 @@
 
 <script>
 import axios from "axios";
+//CHAPTER 7
+var sharedData = {
+  devMode: true,
+  state: {
+    value:1
+  },
+};
 
 export default {
+state:{
+  ship:{},
+  ships:{count:0, results:[]},
+  pilots:[],
+
+},
 
 data(){
   return{
@@ -200,6 +224,11 @@ data(){
 
     inputError:null,
 
+    //CHAPTER 7
+    shared: sharedData,
+    private:{},
+
+
   }
 },
 
@@ -207,6 +236,7 @@ data(){
    myToggle(){
      this.show2 = !this.show2;
    },
+
    search:function(){
      axios
       .get(`https://swapi.dev/api/starships/?search=${this.searchText}`)
@@ -218,7 +248,25 @@ data(){
         console.log(error);
       
       })
-   }
+   },
+
+   increase() {
+     this.$data.shared.value++;
+   },
+
+   decrease(){
+     //this.$data.shared.value--;
+    sharedData.value--;
+   },
+
+  //A HNUAI FUNCTION HI KA HRE THIAM LO
+  //STATE MANAGEMENT VUEX
+   onlyStarFighters(state) {
+     return state.ships.results.filter(function(ship){
+       return ship.starship_class === 'Starfighter';
+     });
+   },
+
  },
  watch:{
    //SEARCH TEXT DYNAMCIALLY

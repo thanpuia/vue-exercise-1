@@ -1,17 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    {{ $store.state.title }}
+    <Notes/>
+
+    <AddNewNote/>
+    
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//THIS IS COMMENT OUT FOR TESTING 
+//import HelloWorld from './components/HelloWorld.vue'
+import Notes from "./components/Notes";
+import AddNewNote from "./components/AddNewNote";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    //HelloWorld,
+    Notes,
+    AddNewNote,
+  },
+};
 </script>
 
 <style>
