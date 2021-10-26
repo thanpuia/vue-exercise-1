@@ -1,25 +1,34 @@
 <template>
   <div>
     {{ $store.state.title }}
-    <Notes/>
+    <!-- <Notes/>
 
-    <AddNewNote/>
+    <AddNewNote/> -->
+
+    <Test/>
+    <Modal/>
     
   </div>
 </template>
 
 <script>
-//THIS IS COMMENT OUT FOR TESTING 
+//1 THIS IS COMMENT OUT FOR TESTING 
 //import HelloWorld from './components/HelloWorld.vue'
-import Notes from "./components/Notes";
-import AddNewNote from "./components/AddNewNote";
+//2. VUEX
+//import Notes from "./components/Notes";
+//import AddNewNote from "./components/AddNewNote";
+//3. MIXIN
+import Test from "./components/Test.vue";
+import Modal from "./components/Modal.vue";
 
 export default {
   name: 'App',
   components: {
     //HelloWorld,
-    Notes,
-    AddNewNote,
+    //Notes,
+    //AddNewNote,
+    Test,
+    Modal,
   },
 };
 </script>
