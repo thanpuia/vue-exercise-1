@@ -1,37 +1,11 @@
 <template>
-  <div>
-    {{ $store.state.title }}
-    <!-- <Notes/>
+  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+      <router-view/>
 
-    <AddNewNote/> -->
-
-    <Test/>
-    <Modal/>
-    
   </div>
 </template>
-
-<script>
-//1 THIS IS COMMENT OUT FOR TESTING 
-//import HelloWorld from './components/HelloWorld.vue'
-//2. VUEX
-//import Notes from "./components/Notes";
-//import AddNewNote from "./components/AddNewNote";
-//3. MIXIN
-import Test from "./components/Test.vue";
-import Modal from "./components/Modal.vue";
-
-export default {
-  name: 'App',
-  components: {
-    //HelloWorld,
-    //Notes,
-    //AddNewNote,
-    Test,
-    Modal,
-  },
-};
-</script>
 
 <style>
 #app {
@@ -40,6 +14,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
